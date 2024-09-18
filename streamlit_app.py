@@ -17,7 +17,7 @@ def llm_call(messages: list[dict]):
   )
 
 messages = [
-  {"role": "user", "content": "Get the contents of https://lu.ma/nyc and List all the upcoming events"},
+  {"role": "user", "content": "Get the events for the next month from the content of https://lu.ma/nyc and List all the upcoming events and the content for those events in a table."},
 ]
 
 response = llm_call(messages)
