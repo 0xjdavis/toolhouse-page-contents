@@ -10,14 +10,14 @@ client = Anthropic(api_key=anthropic_key)
 def llm_call(messages: list[dict]):
   return client.messages.create(
     model="claude-3-5-sonnet-20240620",
-    system="Respond directly, do not preface or end your responses with anything.",
+    system="Respond directly, do not preface or end your responses with anything. List your findings in a table format and populate the following columns if the information exists: Event Title, Date, Time, Location, Address, Cost",
     max_tokens=1000,
     messages=messages,
     tools=th.get_tools(),
   )
 
 messages = [
-  {"role": "user", "content": "Get the contents of https://toolhouse.ai and summarize its key value propositions in three bullet points."},
+  {"role": "user", "content": "Get the contents of https://lu.ma/nyc and List all the upcoming events"},
 ]
 
 response = llm_call(messages)
