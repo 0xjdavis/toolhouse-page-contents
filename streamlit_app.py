@@ -23,7 +23,7 @@ messages = [
 response = llm_call(messages)
 messages += th.run_tools(response, append=True)
 final_response = llm_call(messages)
-print(final_response.content[0].text)
+st.write(final_response.content[0].text)
 
 
 
