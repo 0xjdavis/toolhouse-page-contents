@@ -11,7 +11,7 @@ def llm_call(messages: list[dict]):
   return client.messages.create(
     model="claude-3-5-sonnet-20240620",
     system=" List your findings in a table format and populate the following columns if the information exists: Event Title, Date, Time, Location, Address, Cost, Event Link. Respond with only the data requested, do not preface or end your responses with any added verbiage.",
-    max_tokens=100,
+    max_tokens=500,
     messages=messages,
     tools=th.get_tools(),
   )
