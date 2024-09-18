@@ -10,7 +10,7 @@ client = Anthropic(api_key=anthropic_key)
 def llm_call(messages: list[dict]):
   return client.messages.create(
     model="claude-3-5-sonnet-20240620",
-    system="Respond directly, do not preface or end your responses with anything. List your findings in a table format and populate the following columns if the information exists: Event Title, Date, Time, Location, Address, Cost",
+    system="Respond with only the data requested, do not preface or end your responses with any added verbiage. List your findings in a table format and populate the following columns if the information exists: Event Title, Date, Time, Location, Address, Cost",
     max_tokens=1000,
     messages=messages,
     tools=th.get_tools(),
