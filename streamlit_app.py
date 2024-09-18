@@ -3,8 +3,8 @@ from toolhouse import Toolhouse
 from anthropic import Anthropic
 
 anthropic_key = st.secrets["ANTHROPIC_KEY"]
-
-th = Toolhouse(provider="anthropic", access_token="0482bdd8-c424-47a3-92fa-01ef24772616")
+toolhouse_key = st.secrets["TOOLHOUSE_KEY"]
+th = Toolhouse(provider="anthropic", access_token=toolhouse_key)
 client = Anthropic(api_key=anthropic_key)
 
 def llm_call(messages: list[dict]):
