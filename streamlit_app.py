@@ -6,7 +6,6 @@ anthropic_key = st.secrets["ANTHROPIC_KEY"]
 toolhouse_key = st.secrets["TOOLHOUSE_KEY"]
 th = Toolhouse(provider="anthropic", access_token=toolhouse_key)
 client = Anthropic(api_key=anthropic_key)
-th.set_metadata("id", "user_id")
 
 def llm_call(messages: list[dict]):
   return client.messages.create(
