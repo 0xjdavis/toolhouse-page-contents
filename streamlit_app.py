@@ -5,7 +5,9 @@ from anthropic import Anthropic
 anthropic_key = st.secrets["ANTHROPIC_KEY"]
 toolhouse_key = st.secrets["TOOLHOUSE_KEY"]
 th = Toolhouse(provider="anthropic", access_token=toolhouse_key)
+th.metadata={"id": user_id}
 client = Anthropic(api_key=anthropic_key)
+
 
 def llm_call(messages: list[dict]):
   return client.messages.create(
@@ -16,8 +18,7 @@ def llm_call(messages: list[dict]):
     # system="You are the world's leading authority on events in New York CIty. You know the best event websites like https://lu.ma/nyc like the back of your hand. You know where all the best parties, shows, music, art, sports and dating hotspots are. You know what is trending and you love to share recommendations to create meaningful experiences for people. Your specialty is creating great date night itineraries for new connections. You only provide real data. Nothing fabricated.",
     max_tokens=500,
     messages=messages,
-    tools=th.get_tools(),
-    tools.metadata={"id": user_id}
+    tools=th.get_tools()
   )
 user_id = "user_123"
 messages = [
