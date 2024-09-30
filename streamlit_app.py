@@ -17,7 +17,7 @@ def llm_call(messages: list[dict]):
     max_tokens=500,
     messages=messages,
     tools=th.get_tools(),
-    metadata={"id": user_id}
+    th.metadata={"id": user_id}
   )
 user_id = "user_123"
 messages = [
