@@ -2,6 +2,7 @@ import streamlit as st
 from toolhouse import Toolhouse
 from anthropic import Anthropic
 
+user_id = "user_123"
 anthropic_key = st.secrets["ANTHROPIC_KEY"]
 toolhouse_key = st.secrets["TOOLHOUSE_KEY"]
 th = Toolhouse(provider="anthropic", access_token=toolhouse_key)
@@ -20,7 +21,6 @@ def llm_call(messages: list[dict]):
     messages=messages,
     tools=th.get_tools()
   )
-user_id = "user_123"
 messages = [
   {"role": "user", "content": "Today is {{Date}}. Get the availablity for a reservation at https://www.opentable.com/r/gramercy-tavern-new-york"},
   # {"role": "user", "content": "Get the events for the next 30 days from the content of https://lu.ma/nyc. List the real upcoming events and the content for those events in a table. Don't add anything. Don't fabricate anything."},
