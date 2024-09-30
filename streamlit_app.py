@@ -22,7 +22,7 @@ def llm_call(messages: list[dict]):
     tools=th.get_tools()
   )
 messages = [
-  {"role": "user", "content": "Today is {{Date}}. Get the availablity for a reservation at https://www.opentable.com/r/gramercy-tavern-new-york"},
+  {"role": "user", "content": "Today is {{Date}}. Get the availablity for a reservation at the following url: https://www.opentable.com/r/gramercy-tavern-new-york"},
   # {"role": "user", "content": "Get the events for the next 30 days from the content of https://lu.ma/nyc. List the real upcoming events and the content for those events in a table. Don't add anything. Don't fabricate anything."},
   # {"role": "user", "content": "Today is {{Date}}. Create a calendar of real events in New York City for the next 30 days. Be sure to list the events in chronological order. The format for the calendar should be a table with the event title, event date, event time, and event location. Do not fabricate any data."},
 ]
